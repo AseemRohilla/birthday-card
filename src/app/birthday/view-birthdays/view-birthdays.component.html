@@ -1,0 +1,53 @@
+<div class="main-content">
+  <mat-card class="example-card" *ngFor="let day of days">
+    <mat-card-header>
+      <mat-card-title>{{day.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-template>
+
+      </ng-template>
+      <div
+      *ngFor="let user of filterItemsOfType(day.no) ; let i = index "
+      [ngClass]="{
+        'moreThanNine': filterItemsOfType(day.no).length >= 9,
+        'moreThanSix': filterItemsOfType(day.no).length >= 6,
+        'onlyOne' :filterItemsOfType(day.no).length == 1 }"
+      [style.background-color]="getRandomColor(i)"
+      >
+        {{user.initials}}
+      </div>
+      <div *ngIf="!filterItemsOfType(day.no) || filterItemsOfType(day.no).length === 0" class="noData" >
+        <img src="assets/noData.png" alt="No Data">
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="input-content">
+  <div class="inputElements">
+    <button mat-stroked-button color="primary" (click)="addJson(users.value)">Add JSON</button>
+    <textarea
+    cols="80"
+    rows="20"
+    #users
+    placeholder='[{
+      "name": "Cristiano Ronaldo",
+      "birthday": "01/11/1994"
+    }, {
+      "name": "Marcus Rashford",
+      "birthday": "03/11/1994"
+    }, {
+      "name": "Lionel Messi",
+      "birthday": "08/11/1994"
+    }]'
+    ></textarea>
+  </div>
+    <div class="filterElements">
+      <mat-form-field>
+        <input type="number" matInput placeholder="Enter a year" #year min="0" max="9999">
+        <mat-hint>Eg. 2014</mat-hint>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="updateBirthday(year.value)">Update</button>
+
+    </div>
+</div>

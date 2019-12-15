@@ -1,0 +1,91 @@
+.input-content{
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  >* {
+    margin:1rem;
+  }
+}
+.main-content{
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+.example-card + .example-card {
+  margin-left:1rem ;
+}
+.example-card {
+  width: 10rem;
+  top: 12px;
+  max-width: 10rem;
+  height: 10rem;
+  padding:0
+}
+mat-card-header{
+  height: 30%;
+  color: white;
+  background-color: #ab9cf0;
+  justify-content: flex-end;
+  background-color: #ab9cf0;
+}
+mat-card-content{
+  height: 70%;
+	display: flex;
+	flex-wrap: wrap;
+  div{
+  // @extend .moreThanNine;
+    flex: 1 0 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color:white;
+    padding: 10px;
+    max-width: 50%;
+    text-align: center;
+    &.onlyOne{
+      max-width: 100%;
+    }
+
+    &.moreThanSix{
+      max-width: 33.33%
+    }
+
+    &.moreThanNine{
+      font-size: 9px;
+      max-width: 25%;
+    }
+    &.noData{
+      max-width: 100%;
+      img{
+        width: 65%;
+      }
+    }
+  }
+}
+.inputElements{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  button{
+    bottom: 5px;
+    border:solid 1px #673ab7;
+  }
+  button:hover{
+    color:white;
+    background:#673ab7;
+    border:solid 1px #673ab7;
+  }
+}
+.filterElements{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  button:hover{
+    color:#673ab7;
+    background:white;
+    border:solid 1px #673ab7;
+  }
+}
